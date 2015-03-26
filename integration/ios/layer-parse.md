@@ -77,10 +77,12 @@ Layer authentication gets the property `objectId` of the `[PFUser currentUser]` 
 
 To let you test the features without needing a device, we've created Parse Users that are stored in the Parse Local Datastore.  The `ATLPDataSource` handles all querying and storing of `PFUser`s for the application.
 
-The method `- (void)createFakeParseUsers` is called in `ATLPViewController` during Layer authentication.  When creating new conversations, Users `Bob Test` and `Jane Test` are available to create conversations with.  All Atlas methods that require a User execute a synchronous `PFQuery` from the Local Datastore.
+`ATLPViewController` calls`[[ATLPDataSource sharedInstance] createLocalParseUsers]` during Layer authentication.  When creating new conversations, Users `Bob Test` and `Jane Test` are available as sample users.  All Atlas methods that require a User execute a synchronous `PFQuery` from the Local Datastore.
 
-If you have a device and would like to test the full messaging experience across 2 devices, call the method `- (void)queryAndLocallyStoreCloudUsers` after `- (void)createFakeParseUsers` which is already called. 
+If you have a device and would like to test the full messaging experience across 2 devices, call the method `[[ATLPDataSource sharedInstance] queryAndLocallyStoreCloudUsers]` after the above method.  Any PFUsers registered with your cloud database will be queried and stored locally for use.
 
 ### PFUser + ATLParticipant
 
-Atlas requires that User objects adhere to the `ATLParticipant` protocol to fully leverage all of its features.  We've created a category on the `PFUser` class that will 
+Atlas requires that User objects adhere to the `ATLParticipant` protocol to fully leverage all of its features.  We've created a category on the `PFUser` class that will satisfy this requirement.  Feel free to customize the implementation to return the values you desire from your `PFUser`'s custom properties.
+
+
