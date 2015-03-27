@@ -1,6 +1,6 @@
-# Atlas-iOS-Parse Example
+# Layer-Parse-iOS Example
 
-Atlas-iOS-Parse-Example is a sample application highlighting how to integrate Atlas, the iOS UI Kit for the Layer communications platform with a Parse backend. It presents a very simple example of a chat app.
+LayerParseSampleApp is a sample application highlighting how to integrate Atlas, the iOS UI Kit for the Layer communications platform with a Parse backend. It presents a very simple example of a chat app.
 
 ## Setup
 
