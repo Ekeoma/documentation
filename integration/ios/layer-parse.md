@@ -6,7 +6,7 @@ LayerParseSampleApp is a sample application highlighting how to integrate Atlas,
 
 This project requires Xcode and the iOS SDK v8.0, and uses [Cocoapods](cocoapods.org).
 
-1. Clone the project from Github: `$ git clone https://github.com/maju6406/Atlas-iOS-Parse-Example.git`
+1. Clone the project from Github: `$ git clone https://github.com/layerhq/LayerParseSampleApp`
 2. Install the dependencies in the root directory via CocoaPods: `$ pod install`
 3. Open `LayerParseTest.xcworkspace` in Xcode.
 4. Replace `ATLPLayerAppIDString` , `ParseAppIDString` , and `ParseClientKeyString` in `ATLPAppDelegate.m` with your Layer and Parse credentials.
