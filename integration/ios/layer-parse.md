@@ -11,7 +11,8 @@ This project requires Xcode and the iOS SDK v8.0, and uses [Cocoapods](cocoapods
 3. Open `LayerParseTest.xcworkspace` in Xcode.
 4. Replace `ATLPLayerAppIDString` , `ParseAppIDString` , and `ParseClientKeyString` in `ATLPAppDelegate.m` with your Layer and Parse credentials.
 5. Add the [Layer Parse Module](https://github.com/layerhq/layer-parse-module) to your Parse Cloud Code to serve as an authentication manager.
-6. Build and run the application on your Simulator to create a new user and begin messaging!
+6. (Recommended) If you want test users, import the User.json file found under Supporting Files from the XCode project into your User class on Parse.
+7. Build and run the application on your Simulator to create a new user and begin messaging!
 
 ## Sign Up and Authentication
 
@@ -75,11 +76,7 @@ Layer authentication gets the property `objectId` of the `[PFUser currentUser]` 
 
 ### Sample Users and Testing
 
-To let you test the features without needing a device, we've created Parse Users that are stored in the Parse Local Datastore.  The `ATLPDataSource` handles all querying and storing of `PFUser`s for the application.
-
-`ATLPViewController` calls`[[ATLPDataSource sharedInstance] createLocalParseUsers]` during Layer authentication.  When creating new conversations, Users `Bob Test` and `Jane Test` are available as sample users.  All Atlas methods that require a User execute a synchronous `PFQuery` from the Local Datastore.
-
-If you have a device and would like to test the full messaging experience across 2 devices, call the method `[[ATLPDataSource sharedInstance] queryAndLocallyStoreCloudUsers]` after the above method.  Any PFUsers registered with your cloud database will be queried and stored locally for use.
+To let you test the features without needing a device, we've created test Parse Users that can be used as participants in a sample conversation.  Find the `Users.json` file under Supporting Files in your XCode project, go to your Parse User table, select import, and drag the file to complete.  The `ATLPUserDataSource` handles all querying and caching of `PFUser`s for the application, and Users `Bob Test` and `Jane Test` will be available.
 
 ### PFUser + ATLParticipant
 
